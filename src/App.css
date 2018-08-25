@@ -1,0 +1,182 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/*main component*/
+.app {
+  width: 100%;
+  display: block;
+  position: relative;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+
+*:focus {
+  border-style: solid;
+  border-color: rgb(152, 235, 235);
+}
+
+.map {
+  text-align: center;
+}
+
+
+.wmap {
+  width: 100%;
+  margin-top: -0.3em;
+  float: right;
+}
+
+.header {
+  background-color: #222;
+  color: rgb(241, 237, 228);
+  width: 100%;
+  padding: 1px 0 10px 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+/* Footer style */
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  display: block;
+}
+
+.footerNote{
+  margin: 0;
+  font-size: 14px;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+  background-color: #222;
+  color: white;
+  line-height: 3em;
+}
+
+
+/* infowindow style*/
+
+.infoWindow{
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  margin: 0;
+}
+.infoWindow h2 {
+  color:  rgb(28, 34, 39);
+}
+
+/* sideBar*/
+
+.sideBar{
+  background-color: #fff;
+  opacity: 0.9;
+  z-index: 1;
+  text-align: left;
+  margin: 5px;
+  width: 25%;
+  position: absolute;
+  padding: 5px;
+  min-width: 120px;
+  height: 400px;
+  overflow-y: scroll;
+  top: 90px;
+}
+
+.locations-list {
+  height: 395px;
+}
+
+.locations-list ul{
+  width: 100%;
+  padding: 10px 0;
+  height: 390px;
+}
+
+.locations-list li{
+  padding: 10px;
+  list-style: none;
+
+}
+
+
+input {
+  margin-left: 5px;
+  display: block;
+  padding: 2px;
+  width: 80%;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+li {
+  padding: 10px 5px;
+  margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: rgba(125, 218, 241, 0.39);
+}
+
+
+/* Change UI as screen size changes */
+
+@media only screen and (max-width: 447px) {
+  .locations-container {
+    font-size: 12px;
+    margin: 0;
+    
+  }
+  .locations-list ul{
+    padding: 0;
+  }
+  .locations-list li{
+    margin: 0;
+    padding: 10px 5px;
+    font-size: 14px;
+  }
+  input{
+    width: 90%;
+  }
+  
+  .header{
+    font-size: 12px;
+  }
+
+  .infoWindow{
+    font-size: 80%;
+    padding: 5px;
+  }
+
+
+  .footerNote{
+    line-height: 2.3em;
+  }
+
+  wmap{
+    height: 80vh;
+  }
+
+  .sideBar{
+    top: 70px;
+  }
+}
+@media only screen and (max-width: 319px) {
+  .sideBar{
+    top: 120px;
+  }
+
+  .footerNote{
+    line-height: 1.2em;
+  }
+ 
+}
+
+
