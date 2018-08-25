@@ -20,6 +20,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/src/SideBar.js
-/src/Map1.js
-/src/App1.js
+src/SideBar.js
+src/Map1.js
+src/App1.js
