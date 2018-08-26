@@ -8,6 +8,7 @@ class SideBar extends Component {
     query: ''
   }
 
+  //filter the cafes depending on the search
   refreshQuery = (query) => {
     this.setState({ query })
     this.props.updateList(this.filterCafes(this.props.cafes, query))
@@ -25,13 +26,13 @@ class SideBar extends Component {
 
     const listCafes = this.filterCafes(cafePlaces, typedQuery).map((cafe, idx) => {
       return (
-        <li className= "cafe"
-           key={cafe.id}
-           tabIndex={0}
-           onClick={() => {this.props.handleInfoWindow(idx)}}
-           onKeyPress={() => {this.props.handleInfoWindow(idx)}}
-           role="button"
-           aria-label={cafe.name}>
+        <li key={cafe.id}
+          className= "cafe"
+          tabIndex={0}
+          aria-label={cafe.name}
+          onClick={() => {this.props.handleInfoWindow(idx)}}
+          onKeyPress={() => {this.props.handleInfoWindow(idx)}}
+          >
           
           {cafe.name}
           
@@ -43,7 +44,7 @@ class SideBar extends Component {
       <aside>
         <div className="sideBar">
           <div className="locations-list">
-            <input type="text" placeholder="Search for a place" value={this.state.query} onChange={(e) => this.refreshQuery(e.target.value)}/>
+            <input type="text" placeholder="Search for a place" aria-label="Type to look for a cafe" value={this.state.query} onChange={(e) => this.refreshQuery(e.target.value)}/>
             <ul aria-labelledby="Cafe list">
                 {listCafes}
             </ul>
