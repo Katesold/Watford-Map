@@ -8,9 +8,9 @@ In the app you can search for cafes near Watford on a map from Google, click on 
 
 ## Instructions:
 
-Close the project or download the zip file.
+Clone the project or download the zip file.
 
-Navigate to the directory that contains the project and use the command:
+In the root project directory use the command:
 ```
 npm install
 ```
