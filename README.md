@@ -35,11 +35,10 @@ yarn build
 Then run the command:
 ```
 yarn global add serve
-
+```
 Then run the command:
 ```
 serve -s build
-
 ```
 Then you will be able to open http://localhost:5000 within a browser to test the web app.
 
