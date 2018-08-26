@@ -20,17 +20,27 @@ yarn start
 ```
 The app will open in a browser, however, you can open it manually by typing [http://localhost:3000/](http://localhost:3000/) to the address bar of a browser.
 
+## Dependencies used whilst creating the app
+[create-react-app](https://github.com/facebook/create-react-app) 
+[react-google-maps](https://github.com/tomchentw/react-google-maps)
 
-## Loading the App in Production Mode:
+
+## Load the App in Production Build:
 The Service worker which enables offline views of the site will only work in production mode.
 
 To start the app in production mode run the command:
 ```
-npm run build
+yarn build
 ```
 Then run the command:
 ```
-npm run deploy
+yarn global add serve
+
+Then run the command:
 ```
+serve -s build
+
+```
+Then you will be able to open http://localhost:5000 within a browser to test the web app.
 
 ## Thank you!
