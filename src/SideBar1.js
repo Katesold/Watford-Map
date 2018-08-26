@@ -14,10 +14,15 @@ class SideBar extends Component {
     this.props.updateList(this.filterCafes(this.props.cafes, query))
   }
 
+     
+ /* filterCafes = (cafes, query) => 
+    /*cafes.name!== null ? cafes.filter(cafe => cafe.name.toLowerCase().includes(query.toLowerCase())) : "error getting data from Foursquare"*/
+   /* cafes.filter(cafe => cafe.name.toLowerCase().includes(query.toLowerCase()));*/
   
-  filterCafes = (cafes, query) => 
-  cafes.filter(cafe => cafe.name.toLowerCase().includes(query.toLowerCase()));
+   filterCafes = (cafes, query) => 
+   cafes.filter(cafe => cafe.name.toLowerCase().includes(query.toLowerCase()));
 
+  
  //cafes displayed in SideBar
   render () {
     const cafePlaces = this.props.cafes;
@@ -32,8 +37,7 @@ class SideBar extends Component {
           aria-label={cafe.name}
           onClick={() => {this.props.handleInfoWindow(idx)}}
           onKeyPress={() => {this.props.handleInfoWindow(idx)}}
-          >
-          
+          >          
           {cafe.name}
           
         </li>

@@ -4,6 +4,7 @@ import SideBar from './SideBar1.js';
 import './App.css';
 import Header from './Header.js';
 import Footer from './Footer.js';
+//import ErrorBoundary from './error';
 
 class App extends Component {
 
@@ -11,25 +12,32 @@ class App extends Component {
     cafes: [],
     clickedCafe: {},
     filteredCafe: [],
-    
   }
 
+  handleErrors = (response) => {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+    }
+
+  //https://api.foursquare.com/v2/venues/search?ll=51.656489,-0.39032&intent=browse&radius=10000&query=cafe&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806
 // get the data for the cafes in Watford and catch any errors from Foursquare and Map
   componentDidMount() {
-    fetch('https://api.foursquare.com/v2/venues/search?ll=51.656489,-0.39032&intent=browse&radius=10000&query=cafe&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806')
+    fetch('https://api.foursquare.com/v2/venues/search?ll=51.656489,-0.39032&intent=browse&radius=10000&query=cafe&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU10EUYV0YMYZSX5IHHSU&v=20180806')
+    .then(this.handleErrors)
     .then(response => response.json())
     .then((data) => {
       this.setState({cafes: data.response.venues, filteredCafe: data.response.venues})
     }).catch((error) => {
-      alert('An error occurred while trying to fetch data from Foursquare: ' + error)
+      alert('An error occurred while trying to fetch data from Foursquare to display the local cafes: ' + error)
     })
-
     window.gm_authFailure = () => {
       alert('An error occurred while trying to load Google Map')
     }
   }
 
-
+   
 // Update filtered list of venues 
   updateList = (filteredCafe) => {
     this.setState({ filteredCafe })
@@ -39,28 +47,26 @@ class App extends Component {
   // Show the infowindow when a place is clicked
   handleInfoWindow = (clickedCafe) => {
     this.setState({ clickedPlace: clickedCafe })
-    this.setState({menuHidden: false})
-
   }
 
   render() {
     return (
-      <div className="app" role="application" aria-label="map">
-        <Header />
-        <Map
-           cafes = {this.state.filteredCafe}
-           clickedPlace = {this.state.clickedPlace}
-           handleInfoWindow = {this.handleInfoWindow}/>
+        <div className="app" role="application" aria-label="map">
+          <Header />
+          <Map
+            cafes = {this.state.filteredCafe}
+            clickedPlace = {this.state.clickedPlace}
+            handleInfoWindow = {this.handleInfoWindow}/>
 
-        <SideBar
-           cafes = {this.state.cafes}
-           handleInfoWindow = {this.handleInfoWindow}
-           updateList = {this.updateList}
-           menuHidden = {this.state.menuHidden}
-           />
+          <SideBar
+            cafes = {this.state.cafes}
+            handleInfoWindow = {this.handleInfoWindow}
+            updateList = {this.updateList}
+            menuHidden = {this.state.menuHidden}
+            />
 
-        <Footer/>
-      </div>
+          <Footer/>
+        </div>
     );
   }
 }
