@@ -45,7 +45,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app" role="application">
+      <div className="app" role="application" aria-label="map">
         <Header />
         <Map
            cafes = {this.state.filteredCafe}

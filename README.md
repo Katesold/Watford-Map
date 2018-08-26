@@ -22,6 +22,7 @@ The app will open in a browser, however, you can open it manually by typing [htt
 
 ## Dependencies used whilst creating the app
 [create-react-app](https://github.com/facebook/create-react-app) 
+
 [react-google-maps](https://github.com/tomchentw/react-google-maps)
 
 
