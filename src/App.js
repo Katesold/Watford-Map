@@ -4,7 +4,6 @@ import SideBar from './SideBar1.js';
 import './App.css';
 import Header from './Header.js';
 import Footer from './Footer.js';
-//import ErrorBoundary from './error';
 
 class App extends Component {
 
@@ -24,7 +23,7 @@ class App extends Component {
   //https://api.foursquare.com/v2/venues/search?ll=51.656489,-0.39032&intent=browse&radius=10000&query=cafe&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806
 // get the data for the cafes in Watford and catch any errors from Foursquare and Map
   componentDidMount() {
-    fetch('https://api.foursquare.com/v2/venues/search?ll=51.656489,-0.39032&intent=browse&radius=10000&query=cafe&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU10EUYV0YMYZSX5IHHSU&v=20180806')
+    fetch('https://api.foursquare.com/v2/venues/search?ll=51.656489,-0.39032&intent=browse&radius=10000&query=cafe&client_id=XQSXUGIR140AWUVFJJ120S31IPIXQYIO2QJ2ZN2U0ZPLLG4P&client_secret=A0N5P5VI4NG5UQK2GV2M0WU1FYY3KZ0EUYV0YMYZSX5IHHSU&v=20180806')
     .then(this.handleErrors)
     .then(response => response.json())
     .then((data) => {
