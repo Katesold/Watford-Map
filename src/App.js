@@ -11,7 +11,7 @@ class App extends Component {
     cafes: [],
     clickedCafe: {},
     filteredCafe: [],
-    menuHidden: true
+    
   }
 
 // get the data for the cafes in Watford and catch any errors from Foursquare and Map
@@ -33,32 +33,17 @@ class App extends Component {
 // Update filtered list of venues 
   updateList = (filteredCafe) => {
     this.setState({ filteredCafe })
-    /*const sideMenu = document.getElementsByClassName('bm-menu')[0]
-    sideMenu.style.display = 'block'*/
   }
 
-  /*makeVisible = () => {
-    const sideMenu = document.getElementsByClassName('bm-menu')[0]
-    sideMenu.style.display = 'block'
-  }*/
 
   // Show the infowindow when a place is clicked
   handleInfoWindow = (clickedCafe) => {
     this.setState({ clickedPlace: clickedCafe })
     this.setState({menuHidden: false})
-    /*this.makeVisible()*/
+
   }
 
   render() {
-    let viewIndex = 0
-    if(this.state.menuHidden) {
-      viewIndex = -1
-    }
-
-
-    let visib = {
-      display: 'block'
-    }
     return (
       <div className="app" role="application">
         <Header />
@@ -72,23 +57,13 @@ class App extends Component {
            handleInfoWindow = {this.handleInfoWindow}
            updateList = {this.updateList}
            menuHidden = {this.state.menuHidden}
-           onClick = {makeVis}/>
+           />
 
-      
         <Footer/>
       </div>
     );
   }
 }
 
-const vis = document.getElementsByClassName("bm-burger-button");
-function makeVis() { 
-  vis.addEventListener("click", display)
-};
-
-
-function display() {
-    document.getElementsByClassName("filter").style.display = 'block';
-}
 
 export default App;
