@@ -128,7 +128,7 @@ li:hover {
 
 /* Change UI as screen size changes */
 
-@media only screen and (max-width: 447px) {
+@media only screen and (max-width: 500px) {
   .locations-container {
     font-size: 12px;
     margin: 0;

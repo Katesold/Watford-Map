@@ -6,7 +6,7 @@ class Footer extends Component {
 		return(
 			<footer className="footer" >
           		<h2 className= "footerNote" tabIndex={0}>
-          		 Developed by Kata using Google Maps API, Foursquare API and React 
+          		 Developed by Kata Katona using Google Maps API, Foursquare API and React 
           		</h2>
       		</footer>
 		)
